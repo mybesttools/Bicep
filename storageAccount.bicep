@@ -1,14 +1,15 @@
+param location string = 'westeu'
+
 resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
-  kind: 'string'
-  location: 'westeu'
-  name: 'toylaunchstorage'
+  name: 'toylaunchstorage'  
+  location: location
+  kind: 'StorageV2' 
+  sku: {
+    name: 'Standard_LRS'
+  }
   properties: {
-    accessTier: 'hot'
+    accessTier: 'Hot'
     allowBlobPublicAccess: false
     allowSharedKeyAccess: false
   }
-  sku: {
-    name: 'string'
-  }
-  tags: {
-    {customized property}: 'string'
+}
